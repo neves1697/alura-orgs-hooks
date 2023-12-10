@@ -5,18 +5,9 @@ import Home from './src/Telas/Home';
 
 export default function App() {
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={{marginTop: StatusBar.currentHeight || 0 }}>
       <Home />
       <StatusBar style="auto" />
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
