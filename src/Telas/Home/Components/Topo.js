@@ -6,18 +6,18 @@ import logo from '../../../../assets/logo.png';
 class Topo extends React.Component {
 
     state = {
-        topo:{
+        topo: {
             boasVindas: '',
             legenda: ''
         }
     }
 
-    atualizaTopo(){
+    atualizaTopo() {
         const retorno = carregaTopo();
-        this.setState({topo: retorno});
+        this.setState({ topo: retorno });
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.atualizaTopo();
     }
 
@@ -49,11 +49,13 @@ const estilos = StyleSheet.create({
         fontSize: 26,
         lineHeight: 42,
         fontWeight: 'bold',
+        color: '#464646',
     },
 
     legenda: {
         fontSize: 16,
         lineHeight: 26,
+        color: '#A3A3A3',
     }
 });
 
