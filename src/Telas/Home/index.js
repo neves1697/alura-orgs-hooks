@@ -5,7 +5,6 @@ import Produtores from "./Components/Produtores";
 
 export default function Home() {
     return <>
-        <Topo />
-        <Produtores />
+        <Produtores topo={Topo} />
     </>
 }

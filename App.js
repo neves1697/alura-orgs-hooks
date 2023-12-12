@@ -5,9 +5,16 @@ import Home from './src/Telas/Home';
 
 export default function App() {
   return (
-    <SafeAreaView style={{ marginTop: StatusBar.currentHeight || 0 }}>
+    <SafeAreaView style={estilos.tela}>
       <Home />
       <StatusBar style="auto" />
     </SafeAreaView>
   );
 }
+
+const estilos = StyleSheet.create({
+  tela: {
+    flex: 1,
+    marginTop: StatusBar.currentHeight || 0
+  }
+});
