@@ -1,5 +1,6 @@
 import React from "react";
 import { Text, View, Image, StyleSheet } from 'react-native';
+import Estrelas from "../../../Components/Estrelas";
 
 export default function Produtor({ nome, imagem, distancia, estrelas }) {
     return <>
@@ -9,7 +10,12 @@ export default function Produtor({ nome, imagem, distancia, estrelas }) {
             />
 
             <View style={estilos.informacoes} >
-                <Text style={estilos.nome} > {nome} </Text>
+
+                <View>
+                    <Text style={estilos.nome} > {nome} </Text>
+                    <Estrelas quantidade={estrelas} />
+                </View>
+
                 <Text style={estilos.distancia} > {distancia} </Text>
             </View>
         </View>
@@ -23,20 +29,20 @@ const estilos = StyleSheet.create({
         marginHorizontal: 16,
         borderRadius: 8,
         flexDirection: 'row',
-        
+
         //android
         elevation: 4, //fazendo a sombra do cartão
 
         // iOS
         shadowColor: '#000',
-        textShadowOffset:{
+        textShadowOffset: {
             width: 0,
             height: 2
         },
 
         shadowOpacity: 0.23,
         shadowRadius: 2.62
-        
+
     },
 
     imagem: {
@@ -64,6 +70,6 @@ const estilos = StyleSheet.create({
 
     distancia: {
         fontSize: 12,
-        lineHeight: 19,        
+        lineHeight: 19,
     }
 });
