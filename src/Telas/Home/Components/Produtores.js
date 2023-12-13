@@ -1,19 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { FlatList, StyleSheet, Text } from 'react-native';
-import { carregaProdutores } from "../../../Services/CarregaDados";
 import Produtor from "./Produtor";
+import { UseProdutores } from "../../../Hooks/UseProdutores";
 
 export default function Produtores({ topo: Topo }) {
-    const [titulo, setTitulo] = useState('');
-    const [lista, setLista] = useState([]);
-
-    useEffect(() => {
-        const retorno = carregaProdutores();
-
-        setTitulo(retorno.titulo);
-        setLista(retorno.lista);
-        //console.log(retorno);
-    }, []);// os colchetes chaman apenas uma vez a função que está no useEffect()
+    const [titulo, lista] = UseProdutores();
 
     const topoLista = () => {
         return <>
@@ -28,9 +19,7 @@ export default function Produtores({ topo: Topo }) {
             renderItem={({ item }) =>
                 <Produtor  {...item} />
             }
-
             keyExtractor={({ nome }) => nome}
-
             ListHeaderComponent={topoLista}
         />
     </>
@@ -45,5 +34,4 @@ const estilos = StyleSheet.create({
         fontWeight: 'bold',
         color: '#464646',
     }
-
 });
