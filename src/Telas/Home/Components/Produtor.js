@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useReducer, useState } from "react";
 import { Text, View, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import Estrelas from "../../../Components/Estrelas";
 
 export default function Produtor({ nome, imagem, distancia, estrelas }) {
-
-    const [selecionado, setSelecioado] = useState(false);
+    const [selecionado, inverterSelecionado] = useReducer(
+        (selecionado) => !selecionado,
+        false
+    );
 
     return <>
         <TouchableOpacity style={estilos.cartao}
-            onPress={() => setSelecioado(!selecionado)}
+            onPress={inverterSelecionado}
         >
             <Image style={estilos.imagem}
                 accessibilityLabel={nome} // pessoas com deficiência visual possam ter acesso à informação.
