@@ -1,12 +1,20 @@
-import React, { useReducer, useState } from "react";
+import React, { useReducer, useState, useMemo } from "react";
 import { Text, View, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import Estrelas from "../../../Components/Estrelas";
+
+const distanciaMetros = (distancia) => {
+    console.log('Teste');
+    return `${distancia}m`;
+}
 
 export default function Produtor({ nome, imagem, distancia, estrelas }) {
     const [selecionado, inverterSelecionado] = useReducer(
         (selecionado) => !selecionado,
         false
     );
+
+    const distanciaTexto = useMemo(() =>
+        distanciaMetros(distancia), [distancia]);
 
     return <>
         <TouchableOpacity style={estilos.cartao}
@@ -30,7 +38,7 @@ export default function Produtor({ nome, imagem, distancia, estrelas }) {
 
                 </View>
 
-                <Text style={estilos.distancia} > {distancia} </Text>
+                <Text style={estilos.distancia} > {distanciaTexto} </Text>
             </View>
         </TouchableOpacity>
     </>
